@@ -3,12 +3,37 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node -r dotenv/config app.js",
+    "dev": "nodemon -r dotenv/config app.js",
+    "db:createUserTable": "node -r dotenv/config db/scripts/userTable.js",
+    "db:createTreeTable": "node -r dotenv/config db/scripts/treeTable.js",
+    "db:populateUser": " node -r dotenv/config db/scripts/uploadUser.js",
+    "db:populateTree": " node -r dotenv/config db/scripts/uploadTree.js",
+    "db:dropTable": "node -r dotenv/config db/scripts/dropTable.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
+    "cors": "^2.8.5",
     "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
     "express": "~4.16.0",
-    "morgan": "~1.9.0"
-  }
+    "morgan": "~1.9.0",
+    "nodemon": "^2.0.2",
+    "path": "^0.12.7",
+    "pg": "^7.18.2",
+    "util": "^0.12.2"
+  },
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SchoolOfCode/back-end-week-8-project-team-indecision.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SchoolOfCode/back-end-week-8-project-team-indecision/issues"
+  },
+  "homepage": "https://github.com/SchoolOfCode/back-end-week-8-project-team-indecision#readme",
+  "description": ""
 }
