@@ -62,21 +62,21 @@ router.post("/trees", async (request, response) => {
 //     image: body.treePic
 //   };
 
-//   try {
-//     const user = await registerUsers(requestUser);
-//     if (user) {
-//       requestTree.userId = user.userid;
-//       // console.log(userId, "can reach this");
-//       const tree = await registerTrees(requestTree);
-//       if (tree) {
-//         return response.json({
-//           payload: { user, tree }
-//         });
-//       }
+// try {
+//   const user = await registerUsers(requestUser);
+//   if (user) {
+//     requestTree.userId = user.userid;
+//     // console.log(userId, "can reach this");
+//     const tree = await registerTrees(requestTree);
+//     if (tree) {
+//       return response.json({
+//         payload: { user, tree }
+//       });
 //     }
-//   } catch (error) {
-//     response.status(500).send({ error: "something went wrong", error });
 //   }
+// } catch (error) {
+//   response.status(500).send({ error: "something went wrong", error });
+// }
 // });
 //SCENARIO 1
 //When a new user creates a new tree.

@@ -9,7 +9,7 @@ async function createUserTable() {
                   organisation TEXT,
                   email TEXT,
                   phonenumber TEXT,
-                  image TEXT,
+                  image BYTEA,
                  ipaddress CIDR
               )`
   );

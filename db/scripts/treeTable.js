@@ -4,13 +4,13 @@ async function createTreeTable() {
   const resTree = await query(
     `CREATE TABLE IF NOT EXISTS trees (
                 treeid SERIAL,
-                latitude NUMERIC(8,6), 
-                longitude NUMERIC(7,6),
+                latitude NUMERIC(8,6) NOT NULL, 
+                longitude NUMERIC(7,6) NOT NULL,
                 userid SERIAL,
                 species TEXT,
                 comment TEXT,
                 status TEXT,
-                image TEXT,
+                image BYTEA,
                 dateplanted DATE,
                 daterequested TIMESTAMPTZ
             )`
