@@ -14,13 +14,13 @@ async function uploadUser() {
     try {
       const {
         userId,
-        firstName,
-        lastName,
+        firstname,
+        lastname,
         organisation,
         email,
-        phoneNumber,
+        phonenumber,
         image,
-        ipAddress
+        ipaddress
       } = user[i];
 
       const response = await query(
@@ -35,16 +35,16 @@ async function uploadUser() {
             ipaddress) VALUES ($1,$2,$3,$4,$5,$6, $7, $8)`,
         [
           userId,
-          firstName,
-          lastName,
+          firstname,
+          lastname,
           organisation,
           email,
-          phoneNumber,
+          phonenumber,
           image,
-          ipAddress
+          ipaddress
         ]
       );
-      console.log(firstName);
+      console.log(firstname);
     } catch (error) {
       console.log(error);
     }

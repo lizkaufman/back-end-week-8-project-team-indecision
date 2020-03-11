@@ -15,8 +15,8 @@ async function registerTrees(body) {
     comment,
     status,
     image,
-    datePlanted,
-    dateRequested
+    dateplanted,
+    daterequested
   } = body;
   const data = await query(
     `INSERT INTO trees (
@@ -27,18 +27,18 @@ async function registerTrees(body) {
         comment,
         status,
         image,
-        datePlanted,
-        dateRequested) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *`,
+        dateplanted,
+        daterequested) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *`,
     [
-      latitude || "N.A.",
-      longitude || "N.A.",
-      userId || "N.A.",
-      species || "N.A.",
-      comment || "N.A.",
-      status || "N.A.",
-      image || "N.A.",
-      datePlanted || "N.A.",
-      dateRequested || "N.A."
+      latitude || null,
+      longitude || null,
+      userId || null,
+      species || null,
+      comment || null,
+      status || null,
+      image || null,
+      dateplanted || null,
+      daterequested || null
     ]
   );
   return data.rows[0];

@@ -11,7 +11,7 @@ async function createTreeTable() {
                 comment TEXT,
                 status TEXT,
                 image TEXT,
-                dateplanted TIMESTAMPTZ,
+                dateplanted DATE,
                 daterequested TIMESTAMPTZ
             )`
   );

@@ -8,26 +8,26 @@ async function getUsers() {
 
 async function registerUsers(body) {
   const {
-    firstName,
-    lastName,
+    firstname,
+    lastname,
     organisation,
     email,
-    phoneNumber,
+    phonenumber,
     image,
-    ipAddress
+    ipaddress
   } = body;
   const data = await query(
     `INSERT INTO users (
             firstName, lastName, organisation, email, phoneNumber, image, ipAddress) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *`,
     [
-      // if some of the info isn't supplied, we'll default to "N.A."
-      firstName || "N.A.",
-      lastName || "N.A.",
-      organisation || "N.A.",
-      email || "N.A.",
-      phoneNumber || "N.A.", // TODO: Phone number should be string in db
-      image || "N.A.",
-      ipAddress || "N.A."
+      // if some of the info isn't supplied, we'll default to null
+      firstname || null,
+      lastname || null,
+      organisation || null,
+      email || null,
+      phonenumber || null, // TODO: Phone number should be string in db
+      image || null,
+      ipaddress || null
     ]
   );
   return data.rows[0];

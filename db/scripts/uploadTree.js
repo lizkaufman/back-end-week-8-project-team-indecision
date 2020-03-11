@@ -21,8 +21,8 @@ async function uploadTree() {
         comment,
         status,
         image,
-        datePlanted,
-        dateRequested
+        dateplanted,
+        daterequested
       } = tree[i];
 
       const response = await query(
@@ -46,8 +46,8 @@ async function uploadTree() {
           comment,
           status,
           image,
-          datePlanted,
-          dateRequested
+          dateplanted,
+          daterequested
         ]
       );
       console.log(species);
