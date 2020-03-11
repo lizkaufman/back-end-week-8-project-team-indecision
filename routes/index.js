@@ -1,99 +1,94 @@
 const express = require("express");
-const {
-  registerUser,
-  getUser,
-  getUserById,
-  getUserByName
-} = require("../model/user");
-const {
-  getTreeBySpecies,
-  getTreeById,
-  registerTree
-} = require("../model/tree");
+const { registerUsers, getUsers } = require("../model/users");
+const { getTrees, registerTrees } = require("../model/trees");
 const router = express.Router();
 
-/* GET home page. */
-
-// router.get("/user", function(req, res, next) {
-//   res.json({ message: "Index Route" });
-// });
-
-router.get("/user", async (request, response) => {
-  const { user } = request.query;
-  if (user) {
-    const user = await getUser(user);
-    response.json(user);
-    return;
-  }
+router.get("/users", async (request, response) => {
+  const user = await getUsers();
+  response.json(user);
+  return;
 });
 
-router.get("/user/name", async (request, response) => {
-  const { name } = request.query;
-  if (name) {
-    const namedUser = await getUserByName(name);
-    response.json(namedUser);
-    return;
-  }
-});
-
-router.get("/user/:id", async (request, response) => {
-  const { userId } = request.query;
-  if (userId) {
-    const userId = await getUserById(userId);
-    response.json(userId);
-    return;
-  }
-});
-
-router.post("/user", async (request, response) => {
+router.post("/users", async (request, response) => {
   const body = request.body;
-  const user = await registerUser(body);
+  const user = await registerUsers(body);
   if (user) {
     return response.json({
       success: true,
-      payload: `${user} has been created`
+      payload: `${JSON.stringify(user)} has been created`
     });
   }
   response.json({ success: false, message: "try again" });
 });
 
-router.get("/tree", async (request, response) => {
-  const { tree } = request.query;
-  if (tree) {
-    const tree = await getTree(tree);
-    response.json(tree);
-    return;
-  }
+// TREES ROUTER BEGINS HERE
+
+router.get("/trees", async (request, response) => {
+  const tree = await getTrees();
+  response.json(tree);
+  return;
 });
 
-router.get("/tree/name", async (request, response) => {
-  const { treeName } = request.query;
-  if (treeName) {
-    const namedTree = await getTreeBySpecies(treeName);
-    response.json(namedTree);
-    return;
-  }
-});
-
-router.get("/tree/:id", async (request, response) => {
-  const { treeId } = request.query;
-  if (treeId) {
-    const treeId = await getTreeById(treeId);
-    response.json(treeId);
-    return;
-  }
-});
-
-router.post("/tree", async (request, response) => {
+router.post("/trees", async (request, response) => {
   const body = request.body;
-  const tree = await registerTree(tree);
+  const tree = await registerTrees(body);
   if (tree) {
     return response.json({
       success: true,
-      payload: `${tree} has been created`
+      payload: `${JSON.stringify(tree)} has been created`
     });
   }
   response.json({ success: false, message: "try again" });
 });
 
+router.post("/register", async (request, response) => {
+  const body = request.body;
+  // here destructre the body into actualy properties, and then
+  // create an object you can pass into the registerUsers and another
+  // to pass into registerTrees
+
+  const requestUser = {
+    firstName: body.fName,
+    lastName: body.lName,
+    organisation: body.org,
+    email: body.email,
+    phoneNumber: body.phone
+  };
+
+  const requestTree = {
+    species: body.species,
+    datePlanted: body.datePlanted,
+    comment: body.comment,
+    image: body.treePic
+  };
+
+  try {
+    const user = await registerUsers(requestUser);
+    if (user) {
+      requestTree.userId = user.userid;
+      // console.log(userId, "can reach this");
+      const tree = await registerTrees(requestTree);
+      if (tree) {
+        return response.json({
+          payload: { user, tree }
+        });
+      }
+    }
+  } catch (error) {
+    response.status(500).send({ error: "something went wrong", error });
+  }
+});
+//SCENARIO 1
+//When a new user creates a new tree.
+//Crate user and tree.
+//Return success msg.
+
+//SCENARIO 2
+//Exisiting user creates new tree.
+//Check whether they exist.
+//If they are there, don't create new user but return their user ID.
+// Take tree information and add this.
+//Create success message.
+
+// Ficgure out what data is actually needed!
 module.exports = router;
