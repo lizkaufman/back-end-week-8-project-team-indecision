@@ -41,43 +41,43 @@ router.post("/trees", async (request, response) => {
   response.json({ success: false, message: "try again" });
 });
 
-router.post("/register", async (request, response) => {
-  const body = request.body;
-  // here destructre the body into actualy properties, and then
-  // create an object you can pass into the registerUsers and another
-  // to pass into registerTrees
+// router.post("/register", async (request, response) => {
+//   const body = request.body;
+//   // here destructre the body into actualy properties, and then
+//   // create an object you can pass into the registerUsers and another
+//   // to pass into registerTrees
 
-  const requestUser = {
-    firstName: body.fName,
-    lastName: body.lName,
-    organisation: body.org,
-    email: body.email,
-    phoneNumber: body.phone
-  };
+//   const requestUser = {
+//     firstName: body.fName,
+//     lastName: body.lName,
+//     organisation: body.org,
+//     email: body.email,
+//     phoneNumber: body.phone
+//   };
 
-  const requestTree = {
-    species: body.species,
-    datePlanted: body.datePlanted,
-    comment: body.comment,
-    image: body.treePic
-  };
+//   const requestTree = {
+//     species: body.species,
+//     datePlanted: body.datePlanted,
+//     comment: body.comment,
+//     image: body.treePic
+//   };
 
-  try {
-    const user = await registerUsers(requestUser);
-    if (user) {
-      requestTree.userId = user.userid;
-      // console.log(userId, "can reach this");
-      const tree = await registerTrees(requestTree);
-      if (tree) {
-        return response.json({
-          payload: { user, tree }
-        });
-      }
-    }
-  } catch (error) {
-    response.status(500).send({ error: "something went wrong", error });
-  }
-});
+//   try {
+//     const user = await registerUsers(requestUser);
+//     if (user) {
+//       requestTree.userId = user.userid;
+//       // console.log(userId, "can reach this");
+//       const tree = await registerTrees(requestTree);
+//       if (tree) {
+//         return response.json({
+//           payload: { user, tree }
+//         });
+//       }
+//     }
+//   } catch (error) {
+//     response.status(500).send({ error: "something went wrong", error });
+//   }
+// });
 //SCENARIO 1
 //When a new user creates a new tree.
 //Crate user and tree.
