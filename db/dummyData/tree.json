@@ -1,6 +1,5 @@
 [
   {
-    "treeId": 1,
     "latitude": "52.457381",
     "longitude": "-1.919624",
     "userId": 1,
@@ -12,7 +11,6 @@
     "dateRequested": "2012-03-23"
   },
   {
-    "treeId": 2,
     "latitude": "52.458587",
     "longitude": "-1.923948",
     "userId": 2,
@@ -24,7 +22,6 @@
     "dateRequested": "2017-12-23"
   },
   {
-    "treeId": 3,
     "latitude": "52.461209",
     "longitude": "-1.928393",
     "userId": 3,
@@ -36,7 +33,6 @@
     "dateRequested": "2019-05-21"
   },
   {
-    "treeId": 4,
     "latitude": "52.482183",
     "longitude": "-1.886781",
     "userId": 4,
@@ -48,7 +44,6 @@
     "dateRequested": "2020-01-11"
   },
   {
-    "treeId": 5,
     "latitude": "52.484530",
     "longitude": "-1.888251",
     "userId": 5,
@@ -60,7 +55,6 @@
     "dateRequested": "2001-02-12"
   },
   {
-    "treeId": 6,
     "latitude": "52.486111",
     "longitude": "-1.889227",
     "userId": 6,
@@ -72,7 +66,6 @@
     "dateRequested": "2001-05-17"
   },
   {
-    "treeId": 7,
     "latitude": "52.487378",
     "longitude": "-1.888809",
     "userId": 7,
@@ -85,7 +78,6 @@
   },
 
   {
-    "treeId": 9,
     "latitude": "52.485189",
     "longitude": " -1.906490",
     "userId": 9,
@@ -97,7 +89,6 @@
     "dateRequested": "2019-05-24"
   },
   {
-    "treeId": 10,
     "latitude": "52.492793",
     "longitude": " -1.919397",
     "userId": 10,

@@ -1,6 +1,5 @@
 [
   {
-    "userId": 1,
     "firstName": "James",
     "lastName": "Greygoose",
     "organisation": "Bishopton School",
@@ -10,7 +9,6 @@
     "ipaddress": "192.168.0.1"
   },
   {
-    "userId": 2,
     "firstName": "Murray",
     "lastName": "Hoggett",
     "organisation": "Volcano Company",
@@ -20,7 +18,6 @@
     "ipaddress": "192.168.0.2"
   },
   {
-    "userId": 3,
     "firstName": "Liz",
     "lastName": "Kaufman",
     "organisation": "School of Code",
@@ -30,7 +27,6 @@
     "ipaddress": "192.168.0.3"
   },
   {
-    "userId": 4,
     "firstName": "Cheryl",
     "lastName": "Asif",
     "organisation": "Economist",
@@ -40,7 +36,6 @@
     "ipaddress": "192.168.0.4"
   },
   {
-    "userId": 5,
     "firstName": "Kylie",
     "lastName": "Minogue",
     "organisation": "Stock Aitken and Waterman",
@@ -50,7 +45,6 @@
     "ipaddress": "192.168.0.5"
   },
   {
-    "userId": 6,
     "firstName": "Steven",
     "lastName": "Gerrard",
     "organisation": "Rangers FC",
@@ -60,7 +54,6 @@
     "ipaddress": "192.168.0.6"
   },
   {
-    "userId": 7,
     "firstName": "Kim",
     "lastName": "Kardashian",
     "organisation": "The Kardashians",
@@ -70,7 +63,6 @@
     "ipaddress": "192.168.0.7"
   },
   {
-    "userId": 8,
     "firstName": "Bobby",
     "lastName": "Davro",
     "organisation": "ITV",
@@ -80,7 +72,6 @@
     "ipaddress": "192.168.0.8"
   },
   {
-    "userId": 9,
     "firstName": "Boris",
     "lastName": "Johnson",
     "organisation": "The Government",
@@ -90,7 +81,6 @@
     "ipaddress": "192.168.0.9"
   },
   {
-    "userId": 10,
     "firstName": "Marilyn",
     "lastName": "Monroe",
     "organisation": "Some Like it Hot",

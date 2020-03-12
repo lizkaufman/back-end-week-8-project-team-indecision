@@ -18,7 +18,7 @@ async function registerUsers(body) {
   } = body;
   const data = await query(
     `INSERT INTO users (
-            firstName, lastName, organisation, email, phoneNumber, image, ipAddress) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *`,
+            firstName, lastName, organisation, email, phoneNumber, image, ipaddress) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *`,
     [
       // if some of the info isn't supplied, we'll default to null
       firstname || null,

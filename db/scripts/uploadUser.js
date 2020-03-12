@@ -13,7 +13,6 @@ async function uploadUser() {
 
     try {
       const {
-        userId,
         firstname,
         lastname,
         organisation,
@@ -25,16 +24,14 @@ async function uploadUser() {
 
       const response = await query(
         `INSERT INTO users (
-            userid,
             firstname,
             lastname,
             organisation,
             email,
             phonenumber,
             image,
-            ipaddress) VALUES ($1,$2,$3,$4,$5,$6, $7, $8)`,
+            ipaddress) VALUES ($1,$2,$3,$4,$5,$6, $7)`,
         [
-          userId,
           firstname,
           lastname,
           organisation,

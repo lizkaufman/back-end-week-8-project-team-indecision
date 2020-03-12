@@ -13,7 +13,6 @@ async function uploadTree() {
 
     try {
       const {
-        treeId,
         latitude,
         longitude,
         userId,
@@ -27,7 +26,6 @@ async function uploadTree() {
 
       const response = await query(
         `INSERT INTO trees (
-            treeid,
             latitude,
             longitude,
             userid,
@@ -36,9 +34,8 @@ async function uploadTree() {
             status,
             image,
             dateplanted,
-            daterequested) VALUES ($1,$2,$3,$4,$5,$6, $7, $8, $9, $10)`,
+            daterequested) VALUES ($1,$2,$3,$4,$5,$6, $7, $8, $9)`,
         [
-          treeId,
           latitude,
           longitude,
           userId,

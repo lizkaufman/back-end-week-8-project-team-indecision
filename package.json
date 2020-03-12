@@ -9,7 +9,8 @@
     "db:createTreeTable": "node -r dotenv/config db/scripts/treeTable.js",
     "db:populateUser": " node -r dotenv/config db/scripts/uploadUser.js",
     "db:populateTree": " node -r dotenv/config db/scripts/uploadTree.js",
-    "db:dropTable": "node -r dotenv/config db/scripts/dropTable.js"
+    "db:dropTable": "node -r dotenv/config db/scripts/dropTable.js",
+    "db:reset": "npm run db:dropTable && npm run db:createUserTable && npm run db:createTreeTable && npm run db:populateUser && npm run db:populateTree"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
