@@ -1,6 +1,13 @@
 const express = require("express");
 const { registerUsers, getUsers } = require("../model/users");
-const { getTrees, registerTrees } = require("../model/trees");
+const {
+  getTrees,
+  registerTrees,
+  getSingleTree,
+  delSingleTree,
+  putSingleTree,
+  patchSingleTree
+} = require("../model/trees");
 const router = express.Router();
 
 router.get("/users", async (request, response) => {
@@ -29,6 +36,12 @@ router.get("/trees", async (request, response) => {
   return;
 });
 
+router.get("/trees/:treeId", async (req, res) => {
+  const { treeId } = req.params;
+  const tree = await getSingleTree(treeId);
+  res.json(tree);
+});
+
 router.post("/trees", async (request, response) => {
   const body = request.body;
   const tree = await registerTrees(body);
@@ -41,54 +54,26 @@ router.post("/trees", async (request, response) => {
   response.json({ success: false, message: "try again" });
 });
 
-// router.post("/register", async (request, response) => {
-//   const body = request.body;
-//   // here destructre the body into actualy properties, and then
-//   // create an object you can pass into the registerUsers and another
-//   // to pass into registerTrees
+router.delete("/trees/:treeId", async (req, res) => {
+  const { treeId } = req.params;
+  const tree = await delSingleTree(treeId);
+  res.json(tree);
+});
 
-//   const requestUser = {
-//     firstName: body.fName,
-//     lastName: body.lName,
-//     organisation: body.org,
-//     email: body.email,
-//     phoneNumber: body.phone
-//   };
+router.put("/trees/:treeId", async (req, res) => {
+  const { treeId } = req.params;
+  const body = req.body;
+  console.log("put route");
+  const tree = await putSingleTree(treeId, body);
+  res.json(tree);
+});
 
-//   const requestTree = {
-//     species: body.species,
-//     datePlanted: body.datePlanted,
-//     comment: body.comment,
-//     image: body.treePic
-//   };
+router.patch("/trees/:treeId", async (req, res) => {
+  const { treeId } = req.params;
+  const body = req.body;
+  console.log("Patch route");
+  const tree = await patchSingleTree(treeId, body);
+  res.json(tree);
+});
 
-// try {
-//   const user = await registerUsers(requestUser);
-//   if (user) {
-//     requestTree.userId = user.userid;
-//     // console.log(userId, "can reach this");
-//     const tree = await registerTrees(requestTree);
-//     if (tree) {
-//       return response.json({
-//         payload: { user, tree }
-//       });
-//     }
-//   }
-// } catch (error) {
-//   response.status(500).send({ error: "something went wrong", error });
-// }
-// });
-//SCENARIO 1
-//When a new user creates a new tree.
-//Crate user and tree.
-//Return success msg.
-
-//SCENARIO 2
-//Exisiting user creates new tree.
-//Check whether they exist.
-//If they are there, don't create new user but return their user ID.
-// Take tree information and add this.
-//Create success message.
-
-// Ficgure out what data is actually needed!
 module.exports = router;
