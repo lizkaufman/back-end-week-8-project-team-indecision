@@ -9,23 +9,7 @@ const userRouter = require('./routes/index');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-var corsOptions = {
-  origin: 'https://project-week-back-end.herokuapp.com/',
-  optionsSuccessStatus: 200
-};
-
-app.get('/products/:id', cors(corsOptions), function(req, res, next) {
-  res.json({
-    msg:
-      'This is CORS-enabled for only https://project-week-back-end.herokuapp.com/.'
-  });
-});
-
-app.listen(80, function() {
-  console.log('CORS-enabled web server listening on port 80');
-});
-
-// app.use(cors());
+app.use(cors());
 
 // Pick and choose which middleware you want
 // You will definitely add to and subtract from this list
