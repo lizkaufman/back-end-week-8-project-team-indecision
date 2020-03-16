@@ -10,14 +10,14 @@ const app = express();
 const PORT = 5000;
 
 var corsOptions = {
-  origin: 'https://jolly-meninsky-8f99f1.netlify.com/',
+  origin: 'https://project-week-back-end.herokuapp.com/',
   optionsSuccessStatus: 200
 };
 
 app.get('/products/:id', cors(corsOptions), function(req, res, next) {
   res.json({
     msg:
-      'This is CORS-enabled for only https://jolly-meninsky-8f99f1.netlify.com/.'
+      'This is CORS-enabled for only https://project-week-back-end.herokuapp.com/.'
   });
 });
 
